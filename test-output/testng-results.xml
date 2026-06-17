@@ -1,24 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-06-16T15:06:08 EDT" name="Default suite" finished-at="2026-06-16T15:06:14 EDT" duration-ms="6424">
+  <suite started-at="2026-06-17T17:41:24 EDT" name="Default suite" finished-at="2026-06-17T17:41:28 EDT" duration-ms="3905">
     <groups>
     </groups>
-    <test started-at="2026-06-16T15:06:08 EDT" name="Default test" finished-at="2026-06-16T15:06:14 EDT" duration-ms="6424">
+    <test started-at="2026-06-17T17:41:24 EDT" name="Default test" finished-at="2026-06-17T17:41:28 EDT" duration-ms="3905">
       <class name="rshttpcalls.TestApiCalls">
-        <test-method is-config="true" signature="setup()[pri:0, instance:rshttpcalls.TestApiCalls@72d1ad2e]" started-at="2026-06-16T15:06:08 EDT" name="setup" finished-at="2026-06-16T15:06:08 EDT" duration-ms="461" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:rshttpcalls.TestApiCalls@2d7275fc]" started-at="2026-06-17T17:41:24 EDT" name="setup" finished-at="2026-06-17T17:41:25 EDT" duration-ms="381" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="ALoginUser()[pri:0, instance:rshttpcalls.TestApiCalls@72d1ad2e]" started-at="2026-06-16T15:06:08 EDT" name="ALoginUser" finished-at="2026-06-16T15:06:14 EDT" duration-ms="5553" status="PASS">
+        <test-method signature="ALoginUser()[pri:0, instance:rshttpcalls.TestApiCalls@2d7275fc]" started-at="2026-06-17T17:41:25 EDT" name="ALoginUser" finished-at="2026-06-17T17:41:28 EDT" duration-ms="2762" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ALoginUser -->
-        <test-method signature="BGetUserIssue()[pri:0, instance:rshttpcalls.TestApiCalls@72d1ad2e]" started-at="2026-06-16T15:06:14 EDT" name="BGetUserIssue" finished-at="2026-06-16T15:06:14 EDT" duration-ms="356" status="PASS">
+        <test-method signature="BGetUserIssue()[pri:0, instance:rshttpcalls.TestApiCalls@2d7275fc]" started-at="2026-06-17T17:41:28 EDT" name="BGetUserIssue" finished-at="2026-06-17T17:41:28 EDT" duration-ms="393" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- BGetUserIssue -->
+        <test-method signature="CgetIssueDetail()[pri:0, instance:rshttpcalls.TestApiCalls@2d7275fc]" started-at="2026-06-17T17:41:28 EDT" name="CgetIssueDetail" finished-at="2026-06-17T17:41:28 EDT" duration-ms="314" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CgetIssueDetail -->
       </class> <!-- rshttpcalls.TestApiCalls -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

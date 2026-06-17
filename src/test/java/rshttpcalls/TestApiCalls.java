@@ -12,7 +12,7 @@ public class TestApiCalls extends BaseTest  {
 	
 
 	private String token;
-
+private String issueID;
 	@Test
 	public void ALoginUser() {
 		
@@ -71,8 +71,22 @@ public class TestApiCalls extends BaseTest  {
 		List<String> names = issueResponse.jsonPath().getList("issues._id");
 
 		for (String n : names) {
+			issueID = n;
 		    System.out.println("id of issues: " +n);
 		}
 		
+	}
+	
+	@Test
+	public void CgetIssueDetail()
+	{
+		System.out.println("ID of issue:  "+issueID);
+		Response issueDetailResponse = given()
+				.header("Authorization", "Bearer "+ token)
+				.when()
+				.get("api/issues/" + issueID);
+		System.out.println("Status code of issue detail api:" + issueDetailResponse.getStatusCode() );
+		
+		System.out.println("Title of Issue: "+ issueDetailResponse.jsonPath().getString("issue.title"));
 	}
 }
