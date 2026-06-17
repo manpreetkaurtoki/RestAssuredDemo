@@ -1,12 +1,12 @@
 package rshttpcalls;
 
-import org.hamcrest.Matchers;
-import org.testng.annotations.Test;
-import io.restassured.response.Response;
-import io.restassured.RestAssured;
 import static io.restassured.RestAssured.given;
 
 import java.util.List;
+
+import org.testng.annotations.Test;
+
+import io.restassured.response.Response;
 
 public class TestApiCalls extends BaseTest  {
 	
@@ -31,7 +31,7 @@ public class TestApiCalls extends BaseTest  {
 		System.out.println(userID);
 	}
 
-	/*@Test
+	@Test
 	public void submitIssue()
 	{
 		
@@ -57,7 +57,7 @@ public class TestApiCalls extends BaseTest  {
 		String message=issueResponse.jsonPath().get("message");
 		System.out.println(message);
 	}
-	*/
+	
 	@Test
 	public void BGetUserIssue()
 	{
