@@ -1,22 +1,47 @@
 package rshttpcalls;
 
-import static io.restassured.RestAssured.given;
-
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.List;
-
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import api.clients.LoginApiClient;
+import api.clients.UserIssueApiClient;
+import api.model.LoginRequest;
+import api.model.LoginResponse;
+import api.model.UserIssueResponse;
+import api.utils.TokenManager;
 import io.restassured.response.Response;
 
-public class TestApiCalls extends BaseTest {
+public class TestApiCalls {
 
 	private String token;
 	private String issueID;
 
+	// WITH API FRAMEWORK
 	@Test
+	public void testALogin() {
+		LoginRequest loginreq = new LoginRequest("Test@example.com", "Test@123");
+		Response response = LoginApiClient.getLoginResponse(loginreq);
+		Assert.assertEquals(response.getStatusCode(), 200, "Expected code is 200");
+		LoginResponse loginResponse = response.as(LoginResponse.class);
+		TokenManager.setToken(loginResponse.getToken());
+		System.out.println(TokenManager.getToken());
+		System.out.println("Details of user : " + loginResponse.getUser().getName() + "");
+		System.out.println("Details of user : " + loginResponse.getUser().getId() + "");
+	}
+
+	@Test
+	public void testBGetUserIssues() {
+	
+		Response response = UserIssueApiClient.getUserIssueResponse();
+		System.out.println("User ISSUE"+response.getStatusCode());
+		
+		UserIssueResponse issueResponse = response.as(UserIssueResponse.class);
+		System.out.println("Issue Name: " + issueResponse.getIssues().get(0).getTitle());
+		//System.out.println("Status Code: " + response.getStatusCode());
+	}
+}
+	// WITHOUT API FRAMEWORK JUST EXTEND BASETEST
+/*	@Test
 	public void ALoginUser() throws IOException {
 		String requestBody = new String(Files.readAllBytes(Paths.get("src/test/resources/login.json")));
 
@@ -37,7 +62,6 @@ public class TestApiCalls extends BaseTest {
 		System.out.println("Token to be use" + token);
 		String issueBody = new String(Files.readAllBytes(Paths.get("src/test/resources/submitIssue.json")));
 
-		
 		Response issueResponse = given().header("Content-Type", "application/json")
 				.header("Authorization", "Bearer " + token).body(issueBody).when().post("/api/report");
 		System.out.println("Status Code: " + issueResponse.getStatusCode());
@@ -71,4 +95,4 @@ public class TestApiCalls extends BaseTest {
 
 		System.out.println("Title of Issue: " + issueDetailResponse.jsonPath().getString("issue.title"));
 	}
-}
+}*/

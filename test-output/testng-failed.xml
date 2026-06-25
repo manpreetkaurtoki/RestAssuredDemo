@@ -5,8 +5,7 @@
     <classes>
       <class name="rshttpcalls.TestApiCalls">
         <methods>
-          <include name="BGetUserIssue"/>
-          <include name="setup"/>
+          <include name="testBGetUserIssues"/>
         </methods>
       </class> <!-- rshttpcalls.TestApiCalls -->
     </classes>
